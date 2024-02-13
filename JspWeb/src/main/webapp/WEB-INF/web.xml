@@ -9,4 +9,19 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+    <!-- 1.서블릿등록 -->
+  <servlet>
+<!-- 자바파일을 FirstServlet이라는 이름으로 등록 -->
+  	<servlet-name>FirstServlet</servlet-name>
+  	<!-- .java생략 , 컨트롤키 밑줄쳐져야 정상 -->
+  	<servlet-class>test.FirstServlet</servlet-class>
+  </servlet>
+  <!-- 2.사용자의 요청 -->
+  <servlet-mapping>
+  <!-- 서블릿중에 FirstServlet 라는애 있니? -->
+  <servlet-name>FirstServlet</servlet-name>
+  <!-- FirstServlet 라는 요청이오면 -->
+  <url-pattern>/FirstServlet</url-pattern>
+  </servlet-mapping>
+   
 </web-app>
