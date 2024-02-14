@@ -1,3 +1,48 @@
 서블릿 : 자바 기반의 웹 프로그램 개발을 위해 만들어진 기술이다.
 
-REST : 네트워크상에서 클라이언트와 서버 사이의 통신을 구현하는 방법중 하나이다.d
+REST : 네트워크상에서 클라이언트와 서버 사이의 통신을 구현하는 방법중 하나이다.
+
+
+
+HttpServletRequest는 클라이언트가 서버에 보내는 요청정보를 처리하는 객체이고, HttpServletResponse는 서버가 클라이언트로 보내는 응답정보를 처리하는 객체입니다.
+
+request : 사용자 요청 처리
+response : 응답 처리
+
+doGet
+(HttpServletRequest req, HttpServletResponse resp)	클라이언트로부터 GET 요청을 받았을 때 호출
+
+doPost
+(HttpServletRequest req, HttpServletResponse resp)	클라이언트로부터 POST 요청을 받았을 때 호출
+
+doPut
+(HttpServletRequest req, HttpServletResponse resp)	클라이언트로부터 PUT 요청을 받았을 때 호출
+
+doDelete
+(HttpServletRequest req, HttpServletResponse resp)	클라이언트로부터 DELETE 요청을 받았을 때 호출
+
+doHead
+(HttpServletRequest req, HttpServletResponse resp)	클라이언트로부터 <he></he>AD 요청을 받았을 때 호출
+
+doOptions
+(HttpServletRequest req, HttpServletResponse resp)	클라이언트로부터 OPTIONS 요청을 받았을 때 호출
+
+doTrace
+(HttpServletRequest req, HttpServletResponse resp)	클라이언트로부터 TRACE 요청을 받았을 때 호출
+
+service
+(HttpServletRequest req, HttpServletResponse resp)	모든 HTTP 요청에 대해 호출
+요청 메소드를 분석하여 각각의 메소드에 대응하는 doXXX() 메소드를 호출합니다.
+
+init()	서블릿이 초기화될 때 호출
+서블릿에서 사용할 데이터베이스 연결 등을 초기화하거나, 설정 정보를 로딩
+
+destroy()	서블릿이 종료될 때 호출
+서블릿에서 사용한 리소스를 해제하거나, 정리 작업을 수행
+
+form 태그에서 GET방식에서는
+response.setContentType("text/html; charset=UTF-8");
+
+		   POST방식에서는
+request.setCharacterEncoding("UTF-8");
+response.setContentType("text/html; charset=UTF-8");
