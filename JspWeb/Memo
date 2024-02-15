@@ -46,3 +46,62 @@ response.setContentType("text/html; charset=UTF-8");
 		   POST방식에서는
 request.setCharacterEncoding("UTF-8");
 response.setContentType("text/html; charset=UTF-8");
+
+html에서 servlet파일로 파라미터 값을 전달할떄는 html에서는 무조건 고유한 name으로만 가능하다.
+
+
+JSP---------------------
+Language : 현재페이지의 스크립트 언어를 지정하는 속성
+contentType : 현재페이지의 파일형식을 지정하는 속성이다
+pageEncoding : 파일을 컨테이너가 처리할때 사용하는 캐릭터 인코딩을 지정하는 속성이다.
+import : jsp 파일 내에서 자바 코드를 직접 사용하는 경우 일반 자바 코드와 마찬가지로 클래스에 대한 패키지 import가 필요하다
+errorPage : 현재 jsp요청 처리중에 에러가 발생하는 경우 서버 에러를 클라이언트에 전달하지 않고 별도의 페이지에서 처리하기 위한 속성이다.
+
+
+--------------------------
+include 지시어 : 다른 파일을 포함하기 위한 지시어
+				사용된 위치에 특정 파일을 불러옴
+				ex) <%@ include file ="파일위치"%>
+
+
+<%@ %> : 주로 파일관련된것들일때 사용된다				
+<%! %> : 선언을 의미한다 (메소드)
+<%= %> : html로 출력할떄 사용한다 (표현태그)
+<% %> : 는 자바코드같은것들을 사용할때 사용한다 
+ex) 
+		<%
+		for (String name : member) {
+		%>
+		<li><%=name%></li>
+		<%
+		}
+		%>
+		
+		
+request.setAttribute("num1", num2);
+value가 num2인것을 num1이름으로 지정한다.	
+
+
+<!-- 원하는 페이지로 이동 -->
+
+<!-- 세페이지 앞으로 가기 -->
+<a href="javascript:history.go(3)">세페이지 뒤로가기</a>
+
+<!-- 두페이지 앞으로 가기 -->
+<a href="javascript:history.go(2)">두페이지 뒤로가기</a>
+
+<!-- 한페이지 앞으로 가기 -->
+<a href="javascript:history.go(1)">한페이지 뒤로가기</a>
+
+<!-- 현재 페이지 reload -->
+<a href="javascript:history.go()">현재 페이지 리로드</a>
+
+<!-- 현재 페이지 reload -->
+<a href="javascript:history.go(0)">현재 페이지 리로드</a>
+
+
+<!-- 이전페이지로 이동 -->
+<a href="javascript:history.back();">이전 페이지로 이동</a>
+
+<!-- 다음페이지로 이동 -->
+<a href="javascript:history.forword();">다음페이지로 이동</a>

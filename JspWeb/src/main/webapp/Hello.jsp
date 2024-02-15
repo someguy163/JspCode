@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Hello world</title>
 </head>
 <body>
 	<h2>Hello World</h2>
 	<hr>
-	���� ��¥�� �ð��� : 
+	현재 날짜와 시간은 : 
 	<%=java.time.LocalDateTime.now() %>
-	�Դϴ�
+	입니다
 	
 </body>
 </html>
