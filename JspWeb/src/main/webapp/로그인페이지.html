@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function checkLogin(){
+	var name = document.getElementsByName("name");
+	if(name == ""){
+		alert("이름을 써주세요");
+	}
+	
+	
+	var perNum1 = document.getElementsByName("perNum1");
+	var perNum2 = document.getElementsByName("perNum2");
+	if(perNum1.length != 6){
+		alert("주민번호 앞자리가 6자리이어야 합니다");
+		
+		return false;
+	}
+	else if(perNum1.length == 6){
+		if(perNum2.length != 7){
+			alert("주민번호 뒷자리가 7자리이어야 합니다.");
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
+	var pw = document.getElementsByName("pw");
+	var confrmpw = document.getElementsByName("confrmPw");
+	if(pw != confrmpw){
+		alert("비밀번호를 확인해주세요.");
+		return false;
+	}else {
+		return true;
+		}
+	
+	var id = document.getElementsByName("id");
+	if(id == null){
+		alert("아이디를 입력해주세요.");
+		return false;
+	}
+	
+}
+
+</script>
+</head>
+<body>
+<form action="/JspWeb/mainLoginServlet" method="get" name="Login">
+이름 : <input type="text" name="name" required/><br />
+주민등록번호 : <input type="text" name="perNum1" required/> - <input type="text" name="perNum2" required/><br />
+아이디 <input type="text" name="id" required/><br />
+비밀번호 : <input type="password" name="pw" required/><br />
+비밀번호 확인 : <input type="password" name="confrmPw" required /><br />
+이메일 : <input type="text" name="headEmail"/> @ <select name="domain" id="">
+													<option value="naver.com">naver.com</option>
+													<option value="gmail.com">gmail.com</option>
+												</select><br />
+											
+우편번호 : <input type="text" name="addressNum" /><br />
+주소 : <input type="text" name="address"/><br />
+핸드폰 번호 : <input type="text" name="phoneNum"/><br />
+직업 : <input type="text" name="job"/><br />
+메일 정보 수신 여부 : <input type="radio" name="checkMail"  value ="yes"/> 수신 
+				 <input type="radio" name="checkMail" value="no" />거부
+				 <br />
+관심분야 : <input type="checkbox" name="intresing" value="생두"/>생두
+	<input type="checkbox" name="intresing" value="원두"/>원두
+	<input type="checkbox" name="intresing" value="로스팅"/>로스팅
+	<input type="checkbox" name="intresing" value="핸드드립"/>핸드드립
+	<input type="checkbox" name="intresing" value="에스프레소"/>에스프레소
+	<input type="checkbox" name="intresing" value="장업"/>창업
+	<br />
+	<input type="submit" value="회원가입"  onclick="checkLogin()" />
+	<input type="reset" value="취소" />
+	</form>
+</body>
+</html>
