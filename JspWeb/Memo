@@ -133,3 +133,143 @@ mit.bean.MemberBean 경로에 있는 Bean을 member로 만든다
 
 이름 : <%=member.getName() %> <br />
 아이디 : <%= member.getUserid() %>   
+
+
+<%@ page import ="mit.bean.MovieBean" %>    
+클래스 경로 임포트하고
+<% MovieBean movie = new MovieBean(); %>
+빈생성한다
+
+생성된 인스턴스에 대한 값의 수정과 출력은 getter와 setter로 조작한다.
+int price = Integer.parseInt(request.getParameter("price"));
+movie.setName(request.getParameter("name"));
+movie.setPrice(price);
+movie.setDirector(request.getParameter("director"));
+movie.setActor(request.getParameter("actor"));
+movie.setSynopsis(request.getParameter("synopsis"));
+movie.setGnere(request.getParameter("genre"));
+
+
+EL출력하는 법
+필드값 출력
+${member.name}
+메소드 호출
+${member.calc()}
+
+
+고전적인 방식 : 
+<%
+String str1 = request.getParameter("num1");
+String str2 = request.getParameter("num2");
+int num1 = Integer.parseInt(str1);
+int num2 = Integer.parseInt(str2);
+%>
+
+<%= num1 %> + <%= num2 %> = <%= num1+num2 %>
+<hr />
+
+EL 표기방법 : 
+${param.num1} + ${param.num2} = ${param.num1+param.num2} 
+
+EL 값비교
+
+자바코드 <br />
+== 연산자 사용 결과 : 
+<%=request.getParameter("id") =="abcd" %>
+<br />
+equals 사용결과
+<%=request.getParameter("id").equals("abcd") %>
+
+EL 사용식 <br />
+== 연산자 사용 결과 : ${param.id=="abcd"} <br /> 
+
+
+
+JSTL ------
+JSTL : JSP에서 스크립트릿 , 즉 자바 코드 블록을 사용하지 않고 
+HTML형식을 유지하면서 조건문 , 반복문 , 간단한 연산과 몇몇 유용한 기능을 
+손쉽게 사용할 수 있도록 지원하기 위해 만들어진 표준 커스텀 태그 라이브러리이다.
+
+core사용하려면 맨위에다
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+선언해줘야한다.
+
+core 라이브러리 종류
+변수관련 
+태그 : remove, set
+사용예 : 변수지정과 삭제
+
+흐름제어
+태그 : if, choose , when , otherwise , forEach , forTokens
+사용예 : 조건 처리 , 반복 ,토큰 파싱
+
+URL관리
+태그 : import , redirect , uri , param
+사용예 : URL 핸들링
+
+기타
+태그 : catch , out
+사용예 : 예외처리 , 출력
+
+
+c:if 사용방법
+-------------
+<!-- 첫번쨰 방법 -->
+ <c:set var="color1"
+		value='<%= request.getParameter("color")%>' />
+		getParameter컬러를 가져와서 color1에 저장을 한다
+		c:if문을 통해서 값에 따라 다른 결과를 출력한다.
+<c:if test="${color1==1}">
+		<p style="color: red;">빨강</p>
+	</c:if>
+	<c:if test="${color1==2}">
+		<p style="color: blue;">파랑</p>
+	</c:if>
+	<c:if test="${color1==3}">
+		<p style="color: green;">초록</p>
+	</c:if> 
+	
+<!-- 두번째 방법 -->
+form을통해서 전달받은 값을 
+param.color를 통해서 값을 가져오고 
+c:if를 통해서 조건에 따라 다른 결과를 출력한다.
+<%-- 	<c:if test="${param.color==1}">
+		<p style="color: red;">빨강</p>
+	</c:if>
+	<c:if test="${param.color==2}">
+		<p style="color: blue;">파랑</p>
+	</c:if>
+	<c:if test="${param.color==3}">
+		<p style="color: green;">초록</p>
+	</c:if> --%>
+ 
+ 
+ 
+ c:choose 사용방법
+ --------------
+ 	<!-- 첫번째 방법 -->
+	<%-- 	<c:set var="fruit" value='<%=request.getParameter("fruit")%>'></c:set>
+	<c:choose >
+		<c:when test="${fruit==1}">
+		<p style="color : red">사과</p>
+		</c:when>
+		<c:when test="${fruit==2}">
+		<p style="color : green">메론</p>
+		</c:when>
+		<c:when test="${fruit==3}">
+		<p style="color : yellow">바나나</p>
+		</c:when>
+	</c:choose> --%>
+
+	<!-- 두번째 방법 -->
+	<c:choose>
+		<c:when test="${param.fruit==1}">
+			<p style="color: red">사과</p>
+		</c:when>
+		<c:when test="${param.fruit==2}">
+			<p style="color: green">메론</p>
+		</c:when>
+		<c:when test="${param.fruit==3}">
+			<p style="color: yellow">바나나</p>
+		</c:when>
+	</c:choose>
