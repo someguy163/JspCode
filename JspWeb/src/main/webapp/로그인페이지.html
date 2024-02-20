@@ -4,46 +4,62 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-function checkLogin(){
-	var name = document.getElementsByName("name");
-	if(name == ""){
-		alert("이름을 써주세요");
-	}
+
+
 	
 	
-	var perNum1 = document.getElementsByName("perNum1");
-	var perNum2 = document.getElementsByName("perNum2");
-	if(perNum1.length != 6){
-		alert("주민번호 앞자리가 6자리이어야 합니다");
-		
-		return false;
-	}
-	else if(perNum1.length == 6){
-		if(perNum2.length != 7){
-			alert("주민번호 뒷자리가 7자리이어야 합니다.");
-			return false;
-		}
-		else {
-			return true;
-		}
-	}
-	
-	var pw = document.getElementsByName("pw");
-	var confrmpw = document.getElementsByName("confrmPw");
-	if(pw != confrmpw){
-		alert("비밀번호를 확인해주세요.");
-		return false;
-	}else {
+	/**
+	 * 
+	 */
+
+		function check_ok() {
+			var name = document.getElementsByName("name");
+			var perNum1 = document.getElementsByName("perNum1");
+			var perNum2 = document.getElementsByName("perNum2");
+			var pw = document.getElementsByName("pw");
+			var confrmpw = document.getElementsByName("confrmPw");
+			var id = document.getElementsByName("id");
+			if (name.length == 0) {
+				alert("이름을  써주세요.");
+				name.focus();
+				return false;
+			}
+		if (perNum1.length != 6) {
+				alert("주민번호 6글자이어야 합니다.");
+				perNum1.focus();
+				return false;
+			}
+		if (perNum2.length != 7) {
+				alert("주민번호 7글자이어야 합니다.");
+				perNum2.focus();
+				return false;			
+			}
+		if (id.length == 0) {
+				alert("아이디를 써주세요");
+				rid.focus();
+				return false;
+			}
+		if (id.length < 4) {
+				alert("아이디는 4글자이상이어야 합니다.");
+				id.focus();
+				return false;
+			}
+		 if (pw == "") {
+				alert("패스워드는 반드시 입력해야 합니다.");
+				reg_frm.pwd.focus();
+				return false;
+			}
+		if (pw != confrmpw) {
+				alert("패스워드가 일치하지 않습니다.");
+				rconfrmpw.focus();
+				return false;
+			}
 		return true;
+
 		}
+
 	
-	var id = document.getElementsByName("id");
-	if(id == null){
-		alert("아이디를 입력해주세요.");
-		return false;
-	}
-	
-}
+
 
 </script>
 </head>
@@ -73,7 +89,7 @@ function checkLogin(){
 	<input type="checkbox" name="intresing" value="에스프레소"/>에스프레소
 	<input type="checkbox" name="intresing" value="장업"/>창업
 	<br />
-	<input type="submit" value="회원가입"  onclick="checkLogin()" />
+	<input type="submit" value="회원가입"  onclick="check_ok()" />
 	<input type="reset" value="취소" />
 	</form>
 </body>
