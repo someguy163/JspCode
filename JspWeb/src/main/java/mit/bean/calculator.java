@@ -2,6 +2,7 @@ package mit.bean;
 
 public class calculator {
 
+//	Model
 	private int n1;
 	private int n2;
 	private String op;
@@ -25,24 +26,25 @@ public class calculator {
 		this.op = op;
 	}
 
-	public long calc() {
-		long result =0;
-		switch (op) {
-		case "+": {
-			result = n1+n2; break;
-		}
-		case "-": {
-			result = n1-n2; break;
-		}
-		case "/": {
-			result = n1/n2; break;
-		}
-		case "*": {
-			result = n1*n2; break;
-		}
-		}
-		return result;
-	}
+////	컨트롤러
+//	public long calc() {
+//		long result =0;
+//		switch (op) {
+//		case "+": {
+//			result = n1+n2; break;
+//		}
+//		case "-": {
+//			result = n1-n2; break;
+//		}
+//		case "/": {
+//			result = n1/n2; break;
+//		}
+//		case "*": {
+//			result = n1*n2; break;
+//		}
+//		}
+//		return result;
+//	}
 
 
 }

@@ -273,3 +273,32 @@ c:if를 통해서 조건에 따라 다른 결과를 출력한다.
 			<p style="color: yellow">바나나</p>
 		</c:when>
 	</c:choose>
+	
+	
+c:forEac:forEach 사용방법
+--------------
+1부터 시작해서 10까지 2씩 증가한다
+		<c:forEach var="cnt" begin="1" end="10" varStatus="status" step="2">
+			<tr>
+				<td>${status.index}</td>
+				<td>${status.count}</td>
+				<td>${cnt}</td>
+			</tr>
+		</c:forEach>
+		
+c:set , c:remove , c:catch 사용방법
+-----------
+<c:set var="age" value="30" scope="page"></c:set>
+	나이 :
+	<c:out value="${age}"></c:out>
+	<br />
+	<c:remove var="age" scope="page"></c:remove>
+	나이 :
+	<c:out value="${age}"></c:out>
+	<br />
+	<c:catch var="errmsg">
+		예외 발생 전 <br />
+		<%=1/0 %> <br />
+		예외 발생 후 : <br />
+	</c:catch>
+	<c:out value="${errmsg}"></c:out>		

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<jsp:useBean id="member" class="mit.bean.MemberBean"/>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
 
-	<%
+	<%-- <%
 		int n1 = Integer.parseInt(request.getParameter("n1"));
 		int n2 = Integer.parseInt(request.getParameter("n2"));
 		
@@ -31,11 +32,12 @@
 			result = n1 / n2;
 			break;
 		}
-		}%>
+		}%> --%>
 		
 		<h2>계산결과</h2>
 		<hr />
-		결과 : <%= result %>
+		결과 : <%= request.getAttribute("result") %>
+		
 		
 </body>
 </html>
