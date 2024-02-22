@@ -11,6 +11,6 @@
 <body>
 <h2>계산 결과 - useBean</h2>
 <hr />
-결과 : <%=calc.calc() %>
+<%-- 결과 : <%=calc.calc() %> --%>
 </body>
 </html>
