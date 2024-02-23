@@ -1,0 +1,5 @@
+PreparedStatement : Sql문을 JDBC에서 처리할 수 있는 객체로 변환해야하는데
+이때 사용 되는것이다
+
+executeQuery(): Select 문을 수행할때 사용한다. ResultSet 클래스 타입이다
+executeUpdate() : Update , Delete 문을 수행할때 사용한다.
