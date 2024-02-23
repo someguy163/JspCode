@@ -72,7 +72,7 @@ public class StudentDAO {
 				s.setUniv(rs.getString("univ"));
 				s.setBirth(rs.getDate("birth"));
 				s.setEmail(rs.getString("email"));
-
+//
 				students.add(s);
 			}
 		} catch (Exception e) {
